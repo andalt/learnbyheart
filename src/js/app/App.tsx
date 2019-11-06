@@ -5,20 +5,28 @@ import './App.module.css';
 import Papa from 'papaparse';
 
 function App() {
-    const [words, setWords] = useState([]);
+    type Words = [{
+        type: string;
+        english:  string;
+        russian: string;
+    }];
+
+
+    const [words, setWords] = useState<Words | null>(null);
 
     useEffect(() => {
-        getData()
+        getWordsPreposition()
             .then((dataCsv) => {
                 const object = Papa.parse(dataCsv, {
                     header: true,
                 });
 
+                // setWords(object.data);
                 console.log(object);
             });
     }, [words]);
 
-    const getData = async() => {
+    const getWordsPreposition = async() => {
         const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNHkNmfpLyS_5gnrhTo5qayBIDx0ZMnVD560tq0vYSJEG2blf8hvE7m100U4BOZr8ZFv8rRH0FoUPP/pub?gid=142624304&single=true&output=csv';
         const response = await fetch(url);
 
