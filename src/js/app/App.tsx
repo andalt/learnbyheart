@@ -5,9 +5,9 @@ import './App.module.css';
 
 function App(props: { children: ReactNode }) {
     return (
-        <div>
+        <>
             {props.children}
-        </div>
+        </>
     );
 }
 
