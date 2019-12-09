@@ -15,7 +15,7 @@ function AppRoutes() {
             <Router>
                 <Switch>
                     <Route exact path="/">
-                        <div>{'Hello'}</div>
+                        <div>{'Hello 123'}</div>
                     </Route>
                 </Switch>
             </Router>
